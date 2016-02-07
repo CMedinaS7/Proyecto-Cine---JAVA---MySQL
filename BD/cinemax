@@ -1,0 +1,480 @@
+CREATE DATABASE  IF NOT EXISTS `cinemax` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `cinemax`;
+-- MySQL dump 10.13  Distrib 5.1.40, for Win32 (ia32)
+--
+-- Host: localhost    Database: cinemax
+-- ------------------------------------------------------
+-- Server version	5.1.48-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `personal`
+--
+
+DROP TABLE IF EXISTS `personal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `personal` (
+  `idpersonal` char(5) NOT NULL,
+  `nombres` varchar(45) DEFAULT NULL,
+  `apellidos` varchar(45) DEFAULT NULL,
+  `direccion` varchar(45) DEFAULT NULL,
+  `telefono` varchar(45) DEFAULT NULL,
+  `dni` char(8) DEFAULT NULL,
+  `usuario` varchar(45) DEFAULT NULL,
+  `clave` varchar(45) DEFAULT NULL,
+  `activo` varchar(20) DEFAULT NULL,
+  `foto` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idpersonal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `personal`
+--
+
+LOCK TABLES `personal` WRITE;
+/*!40000 ALTER TABLE `personal` DISABLE KEYS */;
+INSERT INTO `personal` VALUES ('W0001','Carlos Jhoel','Medina Silvestre','La Esperanza','948703839','47641184','carlos','123456','1','usuario/carlos.jpg'),('W0002','ASDASDAaaaa','ASDASDASD','ASDASDASDaaa','565656','12345678','CARLOS','123456','True','usuario/chocolateria_aviacion.jpg');
+/*!40000 ALTER TABLE `personal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `horario`
+--
+
+DROP TABLE IF EXISTS `horario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `horario` (
+  `idPelicula` char(5) DEFAULT NULL,
+  `idCine` char(5) DEFAULT NULL,
+  `dia` varchar(45) DEFAULT NULL,
+  `hora` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `horario`
+--
+
+LOCK TABLES `horario` WRITE;
+/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
+INSERT INTO `horario` VALUES ('aaaaa','aaaaa','aaaaaa','aaaaaa'),('P0001','C0002','24/05/2012','12:00'),('P0001','C0002','10:50','10:50');
+/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cine`
+--
+
+DROP TABLE IF EXISTS `cine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cine` (
+  `idcine` char(5) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `direccion` varchar(45) DEFAULT NULL,
+  `telefono` varchar(45) DEFAULT NULL,
+  `foto` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(2000) DEFAULT NULL,
+  `activo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idcine`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cine`
+--
+
+LOCK TABLES `cine` WRITE;
+/*!40000 ALTER TABLE `cine` DISABLE KEYS */;
+INSERT INTO `cine` VALUES ('C0001','Real Plaza Central','Centro Comercial Real Plaza','541454','static/images/cines/metro_uni_juegos.jpg','Precios de los juegos: S/1.00 en todos los Cine Max. ','1'),('C0002','Cine Centro','Av. España 548','415478','static/images/cines/fachada_benavides.jpg','Precios de los juegos: S/1.00 en todos los Cine Max. ','1'),('C0003','conaaaa','asdasdaaaaaaaaaaaaaaaaaaaaaaaaa','aaaa','static/images/cines/chcolateria_americas.jpg','asdasdasd','True');
+/*!40000 ALTER TABLE `cine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pelicula`
+--
+
+DROP TABLE IF EXISTS `pelicula`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pelicula` (
+  `idpelicula` char(5) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `director` varchar(100) DEFAULT NULL,
+  `reparto` varchar(500) DEFAULT NULL,
+  `duracion` int(11) DEFAULT NULL,
+  `clasificacion` varchar(45) DEFAULT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `Trailer` varchar(200) DEFAULT NULL,
+  `Foto` varchar(150) DEFAULT NULL,
+  `Activo` varchar(12) DEFAULT NULL,
+  `sinopsis` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`idpelicula`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pelicula`
+--
+
+LOCK TABLES `pelicula` WRITE;
+/*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
+INSERT INTO `pelicula` VALUES ('P0001','Los Vengadores','Joss Whedon','Robert Downey Jr., Samuel L. Jackson, Gwyneth Paltrow, Scarlett Johansson, Paul Bettany, Chris Hemsworth, Chris Evans, Mark Ruffalo, Jeremy Renner, Stellan Skarsgård, Lou Ferrigno, Amanda Righetti, Cobie Smulders',98,'Mayores de 12 años','Acción / Ciencia Ficcion',12,'http://www.youtube.com/watch?v=HQIiYqOVTWo','static/images/peliculas/los_vengadores_c_cines.jpg','1','Continuando con las épicas aventuras de superhéroes en la gran pantalla como Iron Man, Hulk, Thor y el Capitán América, llega otra adaptación del cómic de Marvel Los Vengadores, el legendario grupo de superhéroes. Cuando un enemigo inesperado surge como una gran amenaza para la seguridad mundial, Nick Fury, director de la Agencia conocida como SHIELD, se encuentra en la necesidad de reunir a un equipo para salvar al mundo de un desastre casi seguro.'),('P0002','Drive: Escape Perfecto','Nicolas Winding Refn','Ryan Gosling, Ron Perlman, Russ Tamblyn, Bryan Cranston, Christina Hendricks, Jeff Wolfe, Albert Brooks, Oscar Isaac, Carey Mulligan, Kaden Leos, James Biberi, Joe Bucaro Iii, Tiara Parker',78,'Mayores de 14 años','Acción / Drama',14,'http://www.youtube.com/watch?v=--XQKuqUrMo','static/images/peliculas/drive_cinestar_c.jpg','1','Continuando con las épicas aventuras de superhéroes en la gran pantalla como Iron Man, Hulk, Thor y el Capitán América, llega otra adaptación del cómic de Marvel Los Vengadores, el legendario grupo de superhéroes. Cuando un enemigo inesperado surge como una gran amenaza para la seguridad mundial, Nick Fury, director de la Agencia conocida como SHIELD, se encuentra en la necesidad de reunir a un equipo para salvar al mundo de un desastre casi seguro.'),('P0003','dssdfsdfsdfsdfsdfsdf','asd','asd',7,'Mayores 12 aÃ±os','asdasd',100,'null','static/images/peliculas/batalla_naval_c_cinestar.jpg','True','asdasd');
+/*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'cinemax'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarCine` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `InsertarCine`(
+_nombre varchar(100),
+_direccion varchar(200),
+_telefono varchar(2000),
+_foto varchar(100),
+_descripcion varchar(100)
+)
+BEGIN
+declare next_cod int;
+declare codigo char(5);
+
+set next_cod=(select COUNT(IdCine) from Cine); 
+
+if(next_cod < 9) then 
+			 set codigo= concat('C000',next_cod+1);
+
+elseif(next_cod >=9 and next_cod <99) then
+    	 set codigo= concat('C00',next_cod+1);
+
+elseif(next_cod >=99 and next_cod <999) then
+			 set codigo= concat('C0',next_cod+1);
+end if;
+
+insert into cine values(codigo,rtrim(_nombre),rtrim(_direccion),rtrim(_telefono),rtrim(_foto),rtrim(_descripcion),'True');
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarHorario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `InsertarHorario`(
+_pelicula varchar(5),
+_cine varchar(5),
+_dia varchar(2000),
+_hora varchar(100)
+)
+BEGIN
+
+insert into horario values(rtrim(_pelicula),rtrim(_cine),rtrim(_dia),rtrim(_hora));
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarPelicula` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `InsertarPelicula`(
+_nombre varchar(100),
+_director varchar(200),
+_reparto varchar(2000),
+_duracion int(11),
+_clasificacion varchar(100),
+_tipo varchar(50),
+_trailer varchar(300),
+_foto varchar(100),
+_sinopsis varchar(2000)
+)
+BEGIN
+declare next_cod int;
+declare codigo char(5);
+
+set next_cod=(select COUNT(IdPelicula) from pelicula); 
+
+if(next_cod < 9) then 
+			 set codigo= concat('P000',next_cod+1);
+
+elseif(next_cod >=9 and next_cod <99) then
+    	 set codigo= concat('P00',next_cod+1);
+
+elseif(next_cod >=99 and next_cod <999) then
+			 set codigo= concat('P0',next_cod+1);
+end if;
+
+insert into pelicula values(codigo,rtrim(_nombre),rtrim(_director),rtrim(_reparto),rtrim(_duracion),rtrim(_clasificacion),rtrim(_tipo),'100',rtrim(_trailer),rtrim(_foto),'True',rtrim(_sinopsis));
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertarPersonal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `InsertarPersonal`(
+_nombres varchar(100),
+_apellidos varchar(200),
+_direccion varchar(2000),
+_telefono varchar(50),
+_dni char(8),
+_usuario varchar(50),
+_clave varchar(300),
+_foto varchar(100)
+)
+BEGIN
+declare next_cod int;
+declare codigo char(5);
+
+set next_cod=(select COUNT(IdPersonal) from personal); 
+
+if(next_cod < 9) then 
+			 set codigo= concat('W000',next_cod+1);
+
+elseif(next_cod >=9 and next_cod <99) then
+    	 set codigo= concat('W00',next_cod+1);
+
+elseif(next_cod >=99 and next_cod <999) then
+			 set codigo= concat('W0',next_cod+1);
+end if;
+
+insert into personal values(codigo,rtrim(_nombres),rtrim(_apellidos),rtrim(_direccion),rtrim(_telefono),rtrim(_dni),rtrim(_usuario),rtrim(_clave),'True',rtrim(_foto));
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ModificarCine` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `ModificarCine`(
+_codigo char(5),
+_nombre varchar(100),
+_direccion varchar(200),
+_telefono varchar(2000),
+_foto varchar(100),
+_descripcion varchar(100)
+)
+BEGIN
+update cine set
+nombre = rtrim(_nombre),
+direccion= rtrim(_direccion),
+telefono = rtrim(_telefono),
+foto = rtrim(_foto),
+descripcion = rtrim(_descripcion)
+where Idcine=_codigo;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ModificarPelicula` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `ModificarPelicula`(
+_codigo char(5),
+_nombre varchar(100),
+_director varchar(200),
+_reparto varchar(2000),
+_duracion int(11),
+_clasificacion varchar(100),
+_tipo varchar(50),
+_trailer varchar(300),
+_foto varchar(100),
+_sinopsis varchar(2000)
+)
+BEGIN
+update pelicula set
+nombre = rtrim(_nombre),
+director = rtrim(_director),
+reparto= rtrim(_reparto),
+clasificacion = rtrim(_clasificacion),
+tipo = rtrim(_tipo),
+trailer = rtrim(_trailer),
+foto = rtrim(_foto),
+sinopsis = rtrim(_sinopsis)
+where IdPelicula=_codigo;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ModificarPersonal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `ModificarPersonal`(
+_codigo char(5),
+_nombres varchar(100),
+_apellidos varchar(200),
+_direccion varchar(2000),
+_telefono varchar(50),
+_dni char(8),
+_usuario varchar(50),
+_clave varchar(300),
+_foto varchar(100)
+)
+BEGIN
+update personal set
+nombres = rtrim(_nombres),
+apellidos = rtrim(_apellidos),
+direccion= rtrim(_direccion),
+telefono = rtrim(_telefono),
+dni = rtrim(_dni),
+usuario = rtrim(_usuario),
+clave = rtrim(_clave),
+foto = rtrim(_foto)
+where IdPersonal=_codigo;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_mostrarcines` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `sp_mostrarcines`()
+BEGIN
+select CINE.IdcINE,CINE.Nombre from cine;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_mostrarpeliculas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `sp_mostrarpeliculas`()
+BEGIN
+select PELICULA.IdPelicula,PELICULA.Nombre from PELICULA;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `validar_personal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `validar_personal`(
+_user varchar(50),
+_clave varchar(50)
+)
+BEGIN
+
+select  p.apellidos,p.nombres,p.dni,p.telefono,p.foto from personal p where p.usuario=_user and p.clave=_clave;
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-06-21  7:57:41

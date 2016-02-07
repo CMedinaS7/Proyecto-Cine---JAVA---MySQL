@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+.error-404{ color:#FFF; font-weight:bold;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow">
+<!--<link rel="stylesheet" href="http://www.uvkmulticines.com/data/css/estilo.css" type="text/css">-->
+<script type="text/javascript">
+count=5;
+function countdown() 
+	{
+		if (count > 0)
+		{
+			count--;
+			if(count == 0)
+			{
+				window.location="http://www.cinestar.com.pe"; 
+			}
+			if(count > 0)
+			{
+				document.getElementById("countdown").innerHTML = count;
+				setTimeout('countdown()',1000);
+				 
+			}
+		}
+	}
+</script>
+</head>
+<body onLoad="countdown();" style="background-color:#000;">
+<div class="error-404" align="center"><br /><br /><br />Ha ocurrido un error<br /><br />
+<noscript>
+   Error: no tienes javascript activado.
+</noscript>
+</div>
+<div align="center" style="width:auto; margin: 0 auto;">
+<img src="http://www.cinestar.com.pe/static/images/logo_cinestar.png" />
+<div class="error-404">Serás redireccionado en 
+<div style="font-size:24px; font-weight: bold; font-family: arial;" id="countdown">&nbsp;</div> segundos</div>
+</div>
+</body>
+</html>

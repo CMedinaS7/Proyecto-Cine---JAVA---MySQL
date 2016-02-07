@@ -1,0 +1,134 @@
+ul#menuback {
+	margin: 0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	list-style: none;
+	background: url(../images/cines/menu-bg.jpg);
+	background-repeat:no-repeat;
+	width: 600px;
+	overflow: hidden;
+	height:100px;	
+}
+
+ul#menuback li.shutter {
+	width: 200px;
+	height: 100px;
+	display: block;
+	float: left;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+ul#menuback li#cine1 {
+	background: url(../images/cines/excelsior.jpg) no-repeat; 
+}
+ul#menuback li#cine2 {
+	background: url(../images/cines/sur.jpg) no-repeat; 
+}
+ul#menuback li#cine3 {
+	background: url(../images/cines/metro-sanjuan.jpg) no-repeat; 
+}
+
+
+a.link {
+   width: 200px;
+   height: 100px;
+   display: block;
+   background: url(../images/cines/window.png) no-repeat bottom center;
+   text-indent: -9999px;
+}
+
+/*ul 2*/
+
+ul#menuback2 {
+	margin: 0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	list-style: none;
+	background: url(../images/cines/menu-bg2.jpg);
+	background-repeat:no-repeat;
+	width: 600px;
+	overflow: hidden;
+	height:100px;	
+}
+
+ul#menuback2 li.shutter {
+	width: 200px;
+	height: 100px;
+	display: block;
+	float: left;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+ul#menuback2 li#cine4 {
+	background: url(../images/cines/brena.jpg) no-repeat; 
+}
+ul#menuback2 li#cine5 {
+	background: url(../images/cines/uni.jpg) no-repeat; 
+}
+ul#menuback2 li#cine6 {
+	background: url(../images/cines/comas.jpg) no-repeat; 
+}
+
+/*ul 3*/
+
+ul#menuback3 {
+	margin: 0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	list-style: none;
+	background: url(../images/cines/menu-bg3.jpg);
+	background-repeat:no-repeat;
+	width: 600px;
+	overflow: hidden;
+	height:100px;	
+}
+
+ul#menuback3 li.shutter {
+	width: 200px;
+	height: 100px;
+	display: block;
+	float: left;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+ul#menuback3 li#cine7 {
+	background: url(../images/cines/americas.jpg) no-repeat; 
+}
+ul#menuback3 li#cine8 {
+	background: url(../images/cines/porteno.jpg) no-repeat; 
+}
+ul#menuback3 li#cine9 {
+	background: url(../images/cines/aviacion.jpg) no-repeat; 
+}
+
+/*ul 4*/
+
+ul#menuback4 {
+	margin: 0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	list-style: none;
+	background: url(../images/cines/menu-bg4.jpg);
+	background-repeat:no-repeat;
+	width: 600px;
+	overflow: hidden;
+	height:100px;		
+}
+
+ul#menuback4 li.shutter {
+	width: 200px;
+	height: 100px;
+	display: block;
+	float: left;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+ul#menuback4 li#cine10 {
+	background: url(../images/cines/benavides.jpg) no-repeat; 
+}
+ul#menuback4 li#cine11 {
+	background: url(../images/cines/victoria.jpg) no-repeat; 
+}
+ul#menuback4 li#cine12 {
+	background: url(../images/cines/iquitos.jpg) no-repeat; 
+}
